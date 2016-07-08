@@ -28,7 +28,7 @@ module.exports = function (config) {
     ],
 
     // test results reporter to use
-    reporters: ['progress', 'cardboard', 'spec'],
+    reporters: ['progress', 'cardboard'],
 
     // start these browsers. PhantomJS will load up in the background
     browsers: ['PhantomJS'],
