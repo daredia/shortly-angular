@@ -3,7 +3,19 @@ angular.module('shortly.services', [])
 .factory('Links', function ($http) {
   // Your code here
   var getAll = function() {
-    
+    $http({
+      method: 'GET',
+      url: '/api/links'
+    }).then(function successCallback(response) {
+      // this callback will be called asynchronously
+      // when the response is available
+      console.log('response in getAll:', response);
+      $http.respond(response);
+    }, function errorCallback(response) {
+      // called asynchronously if an error occurs
+      // or server returns response with an error status.
+      console.error(response);
+    });
   };
 
   var addOne = function() {
