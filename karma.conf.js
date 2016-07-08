@@ -28,7 +28,7 @@ module.exports = function (config) {
     ],
 
     // test results reporter to use
-   reporters: ['progress', 'cardboard'],
+    reporters: ['progress', 'cardboard', 'spec'],
 
     // start these browsers. PhantomJS will load up in the background
     browsers: ['PhantomJS'],
@@ -37,7 +37,13 @@ module.exports = function (config) {
     autoWatch: false,
 
     // if true, Karma exits after running the tests.
-    singleRun: true
+    singleRun: true,
 
+    client: {
+      captureConsole: true,
+      mocha: {
+        bail: true
+      }
+    }
   });
 };
