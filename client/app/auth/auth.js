@@ -33,4 +33,8 @@ angular.module('shortly.auth', [])
         console.error(error);
       });
   };
+
+  $scope.isInvalid = function (prop) {
+    return !$scope.user[prop];
+  };
 });

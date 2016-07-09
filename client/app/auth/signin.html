@@ -1,9 +1,29 @@
 <div id='signin'>
   <h1>signin</h1>
   <form name="signinForm" ng-submit='signin()'>
-    <input type='text'ng-model='user.username'>
-    <input type="password" ng-model='user.password'>
-    <button>signin</button>
+    <input
+      name="username"
+      type='text'
+      ng-model='user.username'
+      ng-minlength="usernameMinLength"
+      ng-maxlength="usernameMaxLength"
+    >
+    <input
+      name="password"
+      type="password"
+      ng-model='user.password'
+      ng-minlength="passwordMinLength"
+      ng-maxlength="passwordMaxLength"
+    >
+    <input type="submit" ng-disabled="signinForm.$invalid || signinForm.$pristine">
   </form>
+  <div
+    class="error"
+    ng-show="isInvalid('username') && signinForm.username.$touched"
+  >Username must be between {{ usernameMinLength }} and {{ usernameMaxLength }} characters</div>
+  <div
+    class="error"
+    ng-show="isInvalid('password') && signinForm.password.$touched"
+  >Password must be between {{ passwordMinLength }} and {{ passwordMaxLength }} characters</div>
   <a href="#/signup">Don't have an account? <strong>Signup</strong> ...</a>
 </div>

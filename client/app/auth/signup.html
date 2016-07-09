@@ -15,9 +15,15 @@
       ng-minlength="passwordMinLength"
       ng-maxlength="passwordMaxLength"
     >
-    <button>signup</button>
+    <input type="submit" ng-disabled="signupForm.$invalid || signupForm.$pristine">
   </form>
-  <div class="error" ng-show="signupForm.username.$error">Username must be between {{ usernameMinLength }} and {{ usernameMaxLength }} characters</div>
-  <div class="error" ng-show="signupForm.password.$error">Password must be between {{ passwordMinLength }} and {{ passwordMaxLength }} characters</div>
+  <div
+    class="error"
+    ng-show="isInvalid('username') && signupForm.username.$touched"
+  >Username must be between {{ usernameMinLength }} and {{ usernameMaxLength }} characters</div>
+  <div
+    class="error"
+    ng-show="isInvalid('password') && signupForm.password.$touched"
+  >Password must be between {{ passwordMinLength }} and {{ passwordMaxLength }} characters</div>
   <a href="#/signin">Already have an account? <strong>Signin</strong> ...</a>
 </div>
