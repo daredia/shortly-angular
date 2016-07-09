@@ -2,13 +2,13 @@ angular.module('shortly.shorten', [])
 
 .controller('ShortenController', function ($scope, $location, Links) {
   $scope.link = {};
+  $scope.displayType = 'none';
 
   $scope.addLink = function() {
-
-    ////// MAKE DYNAMIC
-    Links.addOne('https://reddit.com/r/javascript')
+    Links.addOne({url: $scope.newLink})
       .then(function(response) {
-        // $scope.link = LINK_HERE;
+        $scope.displayType = 'block';
+        $scope.link = response.data;
       })
       .catch(console.error.bind(console));
   };
