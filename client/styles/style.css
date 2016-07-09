@@ -54,6 +54,7 @@ h1 {
 }
 
 .link {
+  display: block;
   clear: both;
   margin-bottom: 5px;
   padding: 5px;
@@ -115,7 +116,8 @@ form {
 
 
 .error {
-  border: red solid 4px;
+  background-color: #fee;
+  color: #a33;
   padding: 10px;
   margin: 0 10px;
 }

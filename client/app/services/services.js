@@ -20,7 +20,9 @@ angular.module('shortly.services', [])
     .then(function(response) {
       return response;
     })
-    .catch(console.error.bind(console));
+    .catch(function(error) {
+      return error;
+    });
   };
 
   return {
