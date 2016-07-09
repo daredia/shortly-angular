@@ -1,13 +1,14 @@
 <div id="container" ng-controller="LinksController">
+  <input class="text" type="text" name="query" ng-model="query">
   <div class="links">
-      <div class="link" ng-repeat="link in data.links track by $index">
-          <img src="/redirect_icon.png">
-          <div class="info">
-              <div class="visits"><span class="count">{{ link.visits }}</span>Visits</div>
-              <div class="title">{{ link.title }}</div>
-              <div class="original">{{ link.url }}</div>
-              <a href="{{ link.baseUrl }}/{{ link.code }}">{{ link.baseUrl }}/{{ link.code }}</a>
-          </div>
+    <div class="link" ng-repeat="link in data.links | filter:query | orderBy:'-visits'">
+      <img src="/redirect_icon.png">
+      <div class="info">
+        <div class="visits"><span class="count">{{ link.visits }}</span>Visits</div>
+        <div class="title">{{ link.title }}</div>
+        <div class="original">{{ link.url }}</div>
+        <a href="{{ link.baseUrl }}/{{ link.code }}">{{ link.baseUrl }}/{{ link.code }}</a>
       </div>
+    </div>
   </div>
 </div>
